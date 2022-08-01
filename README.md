@@ -39,20 +39,20 @@ alidns:DescribeDomainRecords
 alidns:UpdateDomainRecords
 ````
 将策略限制为**指定资源**以提高安全性，添加资源中将``domainId``字段填入域名即可.\
-![Policy](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM\Create_Policy_1.png)
+![Policy](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM/Create_Policy_1.png)
 ### 设置RAM角色
 创建一个新的[RAM 角色](https://ram.console.aliyun.com/roles)\
 可信实体类型为**阿里云服务**，将受信服务设为**函数计算**.\
 创建完成后为角色新增授权，选择先前创建的权限策略.
-![RAM Role 1](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM\Create_RAM_1.png)
-![RAM Role 2](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM\Create_RAM_2.png)
-![Grant](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM\Grant.png)
+![RAM Role 1](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM/Create_RAM_1.png)
+![RAM Role 2](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM/Create_RAM_2.png)
+![Grant](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM/Grant.png)
 ## Ⅲ.配置函数计算
 #### 创建服务
 ![Create Service](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/Create_Service.png)
 #### 分配角色
 将服务角色设定为刚刚创建好的角色.
-![Assign Role](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM\Assign_Role.png)
+![Assign Role](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/RAM/Assign_Role.png)
 #### 创建函数
 **请求处理程序**设置为``ddns.handler``.
 ![Create Function](https://github.com/Fawkex/Aliyun-DDNS-Clientless/blob/main/instruction/Create_Function.png)
