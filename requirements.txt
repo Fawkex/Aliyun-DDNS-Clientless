@@ -1,0 +1,2 @@
+alibabacloud_tea_util==0.3.6
+alibabacloud_alidns20150109==2.0.2
