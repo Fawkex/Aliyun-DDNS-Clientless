@@ -14,16 +14,19 @@ $REQUEST_URI=$DDNS_ENDPOINT+"?secret="+$SECRET+"&prefix="+$PREFIX+"&type="+$TYPE
 (New-Object System.Net.WebClient).DownloadString($REQUEST_URI)
 ````
 ### Linux
-还没在Linux下用过，获取IPv6地址自己想办法.
+IPv6地址获取只在自己的机器测试过没问题，注意修改网卡名称。\
 IPv4同上.
 ````
+#!/bin/bash
+IPV6_ADDRESS=$(ip address show dev ethxxx temporary |grep inet6|grep -v deprecated|head -n 1|awk '{print $2}'|sed 's/\/64//g')
 DDNS_ENDPOINT="https://******.fcapp.run/setRecord"
 SECRET="19260817"
 PREFIX="O-O"
 TYPE="AAAA"
-IPV6_ADDRESS="另请高明"
 REQUEST_URI=$DDNS_ENDPOINT"?secret="$SECRET"&prefix="$PREFIX"&type="$TYPE"&value="$IPV6_ADDRESS
-curl $REQUEST_URI >> /dev/null
+echo $(date)"  "$IPV6_ADDRESS"  "|tr -d '\n' >> /var/log/ddns.log
+curl $REQUEST_URI >> /var/log/ddns.log
+echo >> /var/log/ddns.log
 ````
 ## Ⅰ.需求
   一个阿里云账号\
